@@ -1,6 +1,6 @@
 print("Welcome to Trivia Quiz!")
 username = input("Insert Username: ")
-print("hey", username, "\nFor every correct answear you will get one point!")
+print("Hey", username, "\nFor every correct answear you will get one point!")
 
 def new_game():
     pass
