@@ -3,16 +3,60 @@ import json
 
 print("Welcome to Trivia Quiz!")
 username = input("Insert Username: ")
-print("Hey", username, "\nFor every correct answear you will get one point!")
+print("Hey", username, "\nFor every question you will have three options and\nfor every correct answear you will get one point!")
 
 def new_game():
-    pass
+    guesses = []
+    correct_guesses = 0
+    question_num = 1
 
-def check_answer():
-    pass
+    for key in questions:
+        print("-------------------------------------------------------")
+        print(key)
 
-def display_score():
-    pass
+        #Options are displayed under every question
+        for i in options[question_num-1]:
+            print(i)
+
+        #User input
+        guess =input("Enter (A, B or C): ")
+        guess = guess.upper()
+        guesses.append(guess)
+
+        #Incrementing score by one
+        correct_guesses += check_answer(questions.get (key),guess)
+        question_num += 1
+
+    #Displays final score to the user
+    display_score(correct_guesses,guesses)
+
+
+
+#Check correct answer
+def check_answer(answear, guess):
+    """
+    Checking if answer is equal to guess.
+    """
+    if answear == guess:
+        print("CORRECT!")
+        return 1
+    else:
+        print("WRONG ANSEWR!")
+        return 0
+
+def display_score(correct_guesses, guesses):
+    """
+    User will be provided with a display of their total score at the end of the game.
+    """
+    print("____________________________________________")
+    print("RESULTS")
+    print("____________________________________________")
+    print("Correct Answers:", end="")
+
+    #Displays all the values within the dictionary
+    for i in questions:
+        print(questions.get(i), end="")
+    print()
 
 def play_again():
     pass
@@ -62,3 +106,8 @@ options = [
     ["A. Shotgun Wedding", "B. The Notebook", "C. Purple hearts"],
     ["A. Eggs and becon", "B. Green eggs and ham", "C. Pancake"],
 ]
+
+"""
+Calling the new game function.
+"""
+new_game()
