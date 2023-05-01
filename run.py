@@ -7,6 +7,9 @@ print("Hey", username, "\nFor every question you will have three options and\nfo
 
 
 def new_game():
+    """
+    Calling the new game function.
+    """
     guesses = []
     correct_guesses = 0
     question_num = 1
@@ -71,7 +74,16 @@ def display_score(correct_guesses, guesses):
 
 
 def play_again():
-    pass
+    """
+    Play again function lets the user play another round of tha game
+    """
+    response = input("Do you want to play again? (yes or no): ")
+    response = response.upper()
+
+    if response == "YES":
+        return True
+    else:
+        return False
 
 
 questions = {
@@ -108,7 +120,11 @@ options = [
     ["A. Eggs and becon", "B. Green eggs and ham", "C. Pancake"],
 ]
 
-"""
-Calling the new game function.
-"""
+
 new_game()
+
+# Play again function
+while play_again():
+    new_game()
+
+print("Good Bye, see you next time.")
