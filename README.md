@@ -12,9 +12,10 @@ At the end ofthe game users will have the choice of replaying if they wish to.
    * [Languages](#languages-used)
    * [Libraries](#libraries)
 
- [Testing)(#testing)
+* [Testing)(#testing)
 
     * [Manual Testing](#manual-testing)
+    
     * [Bugs](#bugs)
     
       * [Fixed Bugs](#fixed-bugs)
@@ -37,7 +38,7 @@ At the end ofthe game users will have the choice of replaying if they wish to.
 ![Books   Litrature Quiz - Page 1](https://user-images.githubusercontent.com/81637641/235639386-208eb6d2-a0cf-4fdb-a5f1-1216cf545bd0.jpeg)
 
 
-User Stories
+## User Stories
 
     As a user, I want to see the logo and welcome message.
     As a user, I want to see instructions on how the quiz works.
