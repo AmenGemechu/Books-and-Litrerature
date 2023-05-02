@@ -3,10 +3,48 @@ The Books & Literature Quiz is a command-line application built with Python, whe
 Users of the application will be asked several questions and their score is kept track of throughout the game. Once the game is completed, score will be calculated by a percentage and displayed to player.
 At the end ofthe game users will have the choice of replaying if they wish to.
 
+* [UX](#user-experience)
+    * [Flowchart](#target-audience)
+    * [User stories](#user-stories)
+ * Technologies Used
+
+   * Languages
+   * Libraries
+   * Programs Used
+
+* Testing
+
+    * Bugs
+       * Fixed Bugs
+       * Unfixed Bugs
+    * Manual Testing
+
+* Deployment
+
+    * Local Deployment
+    * Heroku Deployment
+
+* Credits
+
+    * Content
+    * Acknowledgments
+
+
+
+
 ## Flowchart
 ![Books   Litrature Quiz - Page 1](https://user-images.githubusercontent.com/81637641/235639386-208eb6d2-a0cf-4fdb-a5f1-1216cf545bd0.jpeg)
 
 
+User Stories
+
+    As a user, I want to see the logo and welcome message.
+    As a user, I want to see instructions on how the quiz works.
+    As a user, I want to create my user name.
+    As a user, I want to see the question and multiple-choice options.
+    As a user, I want to see wether my answers were correct or incorrect.
+    As a user, I want to see my score.
+    As a user, I want to be able to replay.
 
 
 
