@@ -6,12 +6,13 @@ At the end ofthe game users will have the choice of replaying if they wish to.
 * [UX](#user-experience)
     * [Flowchart](#target-audience)
     * [User stories](#user-stories)
- * Technologies Used
+    * 
+ *  [Technologies](#technologies)
 
-   * [Languages](#languages_used)
+   * [Languages](#languages-used)
    * [Libraries](#libraries)
 
-* Testing
+ [Testing)(#testing)
 
     * [Manual Testing](#manual-testing)
     * [Bugs](#bugs)
@@ -23,7 +24,6 @@ At the end ofthe game users will have the choice of replaying if they wish to.
 
    * [Lockal Deployment](#lockal-deployment)
    * [Herocku Deployment](#heroku-deployment)
-    * Heroku Deployment
 
 * [Credits](#credits)
 
