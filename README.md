@@ -8,26 +8,27 @@ At the end ofthe game users will have the choice of replaying if they wish to.
     * [User stories](#user-stories)
  * Technologies Used
 
-   * Languages
-   * Libraries
-   * Programs Used
+   * [Languages](#languages_used)
+   * [Libraries](#libraries)
 
 * Testing
 
-    * Bugs
-       * Fixed Bugs
-       * Unfixed Bugs
-    * Manual Testing
+    * [Manual Testing](#manual-testing)
+    * [Bugs](#bugs)
+    
+      * [Fixed Bugs](#fixed-bugs)
+      * [Unfixed Bugs](#unfixed-bugs)
 
-* Deployment
+* [Deployment](#deployment)
 
-    * Local Deployment
+   * [Lockal Deployment](#lockal-deployment)
+   * [Herocku Deployment](#heroku-deployment)
     * Heroku Deployment
 
-* Credits
+* [Credits](#credits)
 
-    * Content
-    * Acknowledgments
+    * [Content](#content)
+    * [Acknowledgments](#acknowledgments)
 
 
 
