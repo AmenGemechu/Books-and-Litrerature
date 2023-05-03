@@ -80,12 +80,13 @@ def display_score(correct_guesses, guesses):
 
     # Calculating and multiplying score by 100 to display it by percentage.
     score = int((correct_guesses/len(questions))*100)
+    print("____________________________________________")
     print("Your score is: "+str(score)+"%")
 
 
 def play_again():
     """
-    Play again function lets the user play another round of tha game
+    Play again function lets the user play another round of the game
     """
     response = input("Do you want to play again? (yes or no): ")
     response = response.upper()
