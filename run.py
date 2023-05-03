@@ -1,9 +1,19 @@
 import json
 
 
-print("Welcome to Trivia Quiz!")
-username = input("Insert Username: ")
-print("Hey", username, "\nFor every question you will have three options and\nfor every correct answear you will get one point!")
+def get_user_name():
+    """
+    Get username
+    Error handeling restricts input length to min 3 & max 10 characters 
+    """
+    while True:
+        name = input()
+        if len(name) > 2 and len(name) < 10:
+            break
+        else:
+            print("User name should be min 3 and max 10 characters long.")
+    return name
+    
 
 
 def new_game():
@@ -121,10 +131,14 @@ options = [
 ]
 
 
+print("Welcome to Books & Litrature Quiz!")
+print("Please enter your User name:")
+name = get_user_name()
+print(f"Hello there, {name}!")
 new_game()
 
 # Play again function
 while play_again():
     new_game()
 
-print("Good Bye, see you next time.")
+print(f"Good Bye, see you next time.")

@@ -1,3 +1,29 @@
+# Books & Litrature Quiz
+Books and Litrature  Quiz is a coman-dline application where users can test their knowledge and learn fun facts about Books & Literature. The application is built with Python, users will be asked several questions and their score is kept track of throughout the quiz. Onece the quiz is completed the score will be calculated by a percentage and displayed to the player. Users will have the choice of replaying if they wish to.
+
+Contents
+
+    User Experience
+        Flowchart
+        User Stories
+    Technologies Used
+        Languages
+        Libraries
+        Programs Used
+    Testing
+        Bugs
+            Fixed Bugs
+            Known Bugs
+        Manual Testing
+    Deployment
+        Local Deployment
+        Heroku Deployment
+    Credits
+        Content
+        Acknowledgments
+
+
+
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
 Welcome,
