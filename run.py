@@ -15,7 +15,6 @@ def get_user_name():
     return name
     
 
-
 def new_game():
     """
     Calling the new game function.
@@ -87,18 +86,27 @@ def display_score(correct_guesses, guesses):
 def play_again():
     """
     Play again function lets the user play another round of the game
+    or exit the program.
     """
-    response = input("Do you want to play again? (yes or no): ")
-    response = response.upper()
+    while True:
+        response = input("Do you want to play again? (yes or no): ")
+        response = response.upper()
 
-    if response == "YES":
-        return True
-    else:
-        return False
+        if response == "YES":
+            return new_game()
+        else:
+            exit()
+
+        try:
+            if response not in ["YES", "NO"]:
+                raise ValueError
+            break
+        except ValueError:
+            print("Invalid input. Plese Enter YES or NO!")
 
 
 questions = {
-
+    
     "1. Which horror author penned the apocalyptic novel 'The Stand'? ": "A",
     "2. Which book is about a band of rabbits became a bestseller in 1972? ": "B",
     "3. The classic 1877 novel 'Black Beauty' is about what kind of animal? ": "A",
@@ -112,7 +120,7 @@ questions = {
     "11. Jacob Black is a character in what Stephenie Meyer book series? ": "A",
     "12. What Nicholas Sparks book about a young socialite and her long-time crush was made into a movie starring Ryan Gosling and Rachel McAdams?": "B",
     "13. In one of the most popular Dr. Seuss books, what won't Sam-I-Am eat? ": "B"
-
+    
 }
 
 options = [
