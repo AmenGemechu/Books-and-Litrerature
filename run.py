@@ -93,20 +93,14 @@ def play_again():
         response = response.upper()
 
         if response == "YES":
-            return new_game()
+            return True
+        elif response == "NO":
+            return False
         else:
-            exit()
-
-        try:
-            if response not in ["YES", "NO"]:
-                raise ValueError
-            break
-        except ValueError:
-            print("Invalid input. Plese Enter YES or NO!")
+            print("Invalid Entry, Please Enter 'Yes' or 'No'.")
 
 
 questions = {
-    
     "1. Which horror author penned the apocalyptic novel 'The Stand'? ": "A",
     "2. Which book is about a band of rabbits became a bestseller in 1972? ": "B",
     "3. The classic 1877 novel 'Black Beauty' is about what kind of animal? ": "A",
@@ -118,9 +112,8 @@ questions = {
     "9. What Charles Dickens novel begins with the sentence, 'It was the best of times, it was the worst of times'": "C",     
     "10. What popular young adult book series sends 'tributes' to participate in a televised competition in which they fight to the death? ": "C",
     "11. Jacob Black is a character in what Stephenie Meyer book series? ": "A",
-    "12. What Nicholas Sparks book about a young socialite and her long-time crush was made into a movie starring Ryan Gosling and Rachel McAdams?": "B",
+    "12. What Nicholas Sparks book was about a young socialite and her long-time crush was made into a movie starring Ryan Gosling and Rachel McAdams?": "B",
     "13. In one of the most popular Dr. Seuss books, what won't Sam-I-Am eat? ": "B"
-    
 }
 
 options = [
@@ -149,5 +142,4 @@ new_game()
 # Play again function
 while play_again():
     new_game()
-
-print(f"Good Bye, see you next time.")
+print("Thanks for being here :) See you next time!")
