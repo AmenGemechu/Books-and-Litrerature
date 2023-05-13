@@ -79,7 +79,9 @@ At the end ofthe game users will have the choice of replaying if they wish to.
 ## Herocku Deployment
 - 
 # Credits & Acknowledgments
-- 
+- Logo text was made using https://textkool.com/
+- Type_writer effect code was taken from:
+    https://stackoverflow.com/questions/20302331/typing-effect-in-python
 
 
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)

@@ -1,5 +1,28 @@
 import json
+import logo
+import os
+import time
+import sys
+import tty 
+import termios 
 
+def print_slow(text):
+    """
+    Prints text slowly with type-writer effect.
+    """
+    file_descriptor = sys.stdin.fileno()
+    old_settings = termios.tcgetattr(file_descriptor)
+    try:
+        ## set terminal to raw to prevent user from interuptings
+        tty.setraw(file_descriptor)
+        for char in text:
+            print(char, end='', flush=True)
+            time.sleep(0.04)
+    finally:
+        # restore terminal settings
+        termios.tcsetattr(file_descriptor, termios.TCSADRAIN, old_settings)
+    print()
+    
 
 def get_user_name():
     """
@@ -29,11 +52,11 @@ def new_game():
 
     for key in questions:
         print("-------------------------------------------------------")
-        print(key)
+        print_slow(key)
 
         # Options are displayed under every question.
         for i in options[question_num-1]:
-            print(i)
+            print_slow(i)
 
         # User input
         while True:
@@ -65,12 +88,17 @@ def check_answer(answear, guess):
         print("WRONG ANSEWR!")
         return 0
 
+
 def play_again():
     """
     Play again function lets the user play another round of the game
     or exit the program.
     """
     while True:
+        score = int((correct_guesses/len(questions))*100)
+        print("____________________________________________")
+        print("Your score is: "+str(score)+"%")
+        print("")
         response = input("Do you want to play again yes or no? ")
         response = response.upper()
 
@@ -80,7 +108,6 @@ def play_again():
         elif response == "NO":
             display_score(correct_guesses, guesses)
             return False
-
         else:
             print("Invalid Entry, Please Enter 'Yes' or 'No'.")
         
@@ -146,8 +173,10 @@ options = [
 ]
 
 
-print("Welcome to Books & Litrature Quiz!")
-print("Please enter your User name:")
+os.system('clear')
+logo.logo_welcome_page()
+print_slow("Welcome to Books & Litrature Quiz!")
+print_slow("Please enter your User name:")
 name = get_user_name()
 print(f"Hello there, {name}!")
 new_game()
@@ -156,4 +185,4 @@ new_game()
 # Play again function
 while play_again():
     new_game()
-print("Thanks for being here :) See you next time!")
+print_slow("Thanks for being here :) See you next time!")
