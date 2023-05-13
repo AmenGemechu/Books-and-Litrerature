@@ -18,7 +18,8 @@ def get_user_name():
 def new_game():
     """
     Calling the new game function.
-    Defining guesses and correct guesses globaly to be used across functions. 
+    Defining guesses and correct guesses globaly to be used across functions.
+    Error handlinf for invalid entry.
     """
     global guesses
     guesses = []
@@ -35,13 +36,19 @@ def new_game():
             print(i)
 
         # User input
-        guess = input("Enter (A, B or C): ")
-        guess = guess.upper()
-        guesses.append(guess)
+        while True:
+            guess = input("Enter (A, B or C): ")
+            guess = guess.upper()
+            
+            if "A" in guess or "B" in guess or "C" in guess:
+                guesses.append(guess)
+                break
+            else:
+                print(f"You entered {guess} please enter A, B or C")
 
         # Incrementing score by one.
         
-        correct_guesses += check_answer(questions.get (key),guess)
+        correct_guesses += check_answer(questions.get(key),guess)
         question_num += 1
 
 
@@ -49,6 +56,7 @@ def new_game():
 def check_answer(answear, guess):
     """
     Checking if answer is equal to guess.
+    Incrementing and Decrementing Score accordingly.
     """
     if answear == guess:
         print("CORRECT!")
@@ -56,7 +64,6 @@ def check_answer(answear, guess):
     else:
         print("WRONG ANSEWR!")
         return 0
-
 
 def play_again():
     """
