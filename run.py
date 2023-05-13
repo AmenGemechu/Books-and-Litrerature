@@ -18,8 +18,11 @@ def get_user_name():
 def new_game():
     """
     Calling the new game function.
+    Defining guesses and correct guesses globaly to be used across functions. 
     """
+    global guesses
     guesses = []
+    global correct_guesses
     correct_guesses = 0
     question_num = 1
 
@@ -37,11 +40,9 @@ def new_game():
         guesses.append(guess)
 
         # Incrementing score by one.
+        
         correct_guesses += check_answer(questions.get (key),guess)
         question_num += 1
-
-    # Displays final score to the user.
-    display_score(correct_guesses, guesses)
 
 
 # Check correct answer.
@@ -56,6 +57,26 @@ def check_answer(answear, guess):
         print("WRONG ANSEWR!")
         return 0
 
+
+def play_again():
+    """
+    Play again function lets the user play another round of the game
+    or exit the program.
+    """
+    while True:
+        response = input("Do you want to play again yes or no? ")
+        response = response.upper()
+
+        if response == "YES":
+            print("New game Starting...")
+            return True
+        elif response == "NO":
+            display_score(correct_guesses, guesses)
+            return False
+
+        else:
+            print("Invalid Entry, Please Enter 'Yes' or 'No'.")
+        
 
 def display_score(correct_guesses, guesses):
     """
@@ -83,23 +104,7 @@ def display_score(correct_guesses, guesses):
     print("Your score is: "+str(score)+"%")
 
 
-def play_again():
-    """
-    Play again function lets the user play another round of the game
-    or exit the program.
-    """
-    while True:
-        response = input("Do you want to play again? (yes or no): ")
-        response = response.upper()
-
-        if response == "YES":
-            return True
-        elif response == "NO":
-            return False
-        else:
-            print("Invalid Entry, Please Enter 'Yes' or 'No'.")
-
-
+# Storing questions & correct answers using dictionary keys and values.
 questions = {
     "1. Which horror author penned the apocalyptic novel 'The Stand'? ": "A",
     "2. Which book is about a band of rabbits became a bestseller in 1972? ": "B",
@@ -116,6 +121,7 @@ questions = {
     "13. In one of the most popular Dr. Seuss books, what won't Sam-I-Am eat? ": "B"
 }
 
+# Storing multiple choice options using lists.
 options = [
     ["A. Stephen King", "B. Shirley Jackson", "C. Clive Barker"],
     ["A. The Bug Book", "B. Watership Down", "C. The Sinking Spell"],
@@ -138,6 +144,7 @@ print("Please enter your User name:")
 name = get_user_name()
 print(f"Hello there, {name}!")
 new_game()
+
 
 # Play again function
 while play_again():

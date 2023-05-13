@@ -67,6 +67,9 @@ At the end ofthe game users will have the choice of replaying if they wish to.
 # Bugs
 ## Fixed Bugs
 - branch and 'origin/main' have diverged due to different commits. Issue was resolved by using "git pull" to merge the remote branch with main branch.
+- play_again function 
+    - try/excep: break as causing while loop to exit early.
+    - fixed bug by replacing it by if/else. 
 ## Unfixed Bugs
 - 
 
