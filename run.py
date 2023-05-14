@@ -5,6 +5,8 @@ import time
 import sys
 import tty 
 import termios 
+import csv
+
 
 def print_slow(text):
     """
@@ -35,8 +37,43 @@ def get_user_name():
             break
         else:
             print("User name should be min 3 and max 10 characters long.")
+    name = name.upper()
+    """
+    Adding levels to the quiz using csv file
+    by Storing the user and the last score in a file subsequently reading 
+    back from it allowes the user to continue from its last state.
+    """
+    global last_score
+    with open("levels.txt") as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=':')
+        global line_count
+        line_count = 0
+        found = False
+        for row in csv_reader:
+            if name == row[0]:
+                found = True
+                break
+            line_count += 1
+
+        if found == True:
+            print(f"match in raw: {+ line_count}")
+            last_score = row[1]
+            print(f'\t{row[0]} {row[1]}.')
+            print(f'Processed {line_count} lines.')
+            csv_file.close()
+        if found == False:
+            last_score = 0
+            line_count += 1
+            print("no match means we need to add a new")
+                
+
+            
     return name
-    
+# with open('levels.txt', mode='w') as csv_file:
+   # csv_writer = csv.writer(levels_file, delimiter=',')
+
+# close file
+
 
 def new_game():
     """
@@ -52,11 +89,11 @@ def new_game():
 
     for key in questions:
         print("-------------------------------------------------------")
-        print_slow(key)
+        print(key)
 
         # Options are displayed under every question.
         for i in options[question_num-1]:
-            print_slow(i)
+            print(i)
 
         # User input
         while True:
@@ -95,10 +132,36 @@ def play_again():
     or exit the program.
     """
     while True:
+        
         score = int((correct_guesses/len(questions))*100)
         print("____________________________________________")
         print("Your score is: "+str(score)+"%")
         print("")
+        
+        print(f"last_score: {last_score}")
+        combined_score = score + int(last_score)
+        #with open("levels.txt",'w') as csv_file:
+        #    search_file = search_file.replace("{name},{last_score}", "{name},{combined_score}")
+        #    csv_file.write(search_file)
+        #    csv_file.close()
+        with open("levels.txt") as csv_file:
+            #print(f"Replacing {name},{last_score} with {name},{combined_score}")
+            #print("")
+            #print("")
+            file_content = csv_file.read()
+            #print(f"file_content: {file_content}")
+            replaced_content = file_content.replace(str(name) + ":" + str(last_score), str(name) + ":" + str(combined_score))
+            #print(f"replaced_content:{replaced_content}")
+        csv_file.close()
+        
+        #    print(f"tempold:")
+        #    newtext = csv_file.read().replace("tmpold", str(tmpnew))
+        #    print(f"newtext is, {newtext}")
+        #csv_file.close()
+        with open("levels.txt", 'w') as csv_file:
+            csv_file.write(replaced_content)
+
+        print(f"Your combined Score is {combined_score}")
         response = input("Do you want to play again yes or no? ")
         response = response.upper()
 
@@ -179,6 +242,12 @@ print_slow("Welcome to Books & Litrature Quiz!")
 print_slow("Please enter your User name:")
 name = get_user_name()
 print(f"Hello there, {name}!")
+try:
+    last_score
+    print(f"Your last Score was, {last_score}")
+except:
+    print()
+
 new_game()
 
 
