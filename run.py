@@ -43,6 +43,10 @@ def get_user_name():
     by Storing the user and the last score in a file subsequently reading 
     back from it allowes the user to continue from its last state.
     """
+    #Error handeling with try/except
+    #if not os.path.exists(filename):
+    #file(filename, 'w').close()
+
     global last_score
     with open("levels.txt") as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=':')
@@ -64,8 +68,12 @@ def get_user_name():
         if found == False:
             last_score = 0
             line_count += 1
-            print("no match means we need to add a new")
-                
+            # Creating user data for new users.
+            with open("levels.txt", "a") as myfile:
+                myfile.write("\n" + str(name) + ":" + str(last_score))
+            myfile.close()
+            #print("no match means we need to add a new")
+        
 
             
     return name
