@@ -3,8 +3,8 @@ import logo
 import os
 import time
 import sys
-import tty 
-import termios 
+import tty
+import termios
 import csv
 
 
@@ -24,12 +24,12 @@ def print_slow(text):
         # restore terminal settings
         termios.tcsetattr(file_descriptor, termios.TCSADRAIN, old_settings)
     print()
-    
+
 
 def get_user_name():
     """
     Get username
-    Error handeling restricts input length to min 3 & max 10 characters 
+    Error handeling restricts input length to min 3 & max 10 characters
     """
     while True:
         name = input()
@@ -39,7 +39,7 @@ def get_user_name():
             print("User name should be min 3 and max 10 characters long.")
     name = name.upper()
     """
-    Storing the user and the last score in a file using cvs_file 
+    Storing the user and the last score in a file using cvs_file
     it allowes the user to continue from its last score.
     """
     global last_score
@@ -74,7 +74,7 @@ def get_user_name():
             # Creating user data for new users.
             with open("userdata.txt", "a") as myfile:
                 myfile.write("\n" + str(name) + ":" + str(last_score))
-            myfile.close()           
+            myfile.close()
     return name
 
 
@@ -102,7 +102,7 @@ def new_game():
         while True:
             guess = input("Enter (A, B or C): ")
             guess = guess.upper()
-            
+
             if "A" in guess or "B" in guess or "C" in guess:
                 guesses.append(guess)
                 break
@@ -110,7 +110,7 @@ def new_game():
                 print(f"You entered {guess} please enter A, B or C")
 
         # Incrementing score by one.
-        correct_guesses += check_answer(questions.get(key),guess)
+        correct_guesses += check_answer(questions.get(key), guess)
         question_num += 1
 
 
@@ -138,15 +138,15 @@ def play_again():
         print("____________________________________________")
         print_slow("Your score is: "+str(score)+"%")
         print("")
-        
+
         print(f"last_score: {last_score}")
         combined_score = score + int(last_score)
-      
+
         with open("userdata.txt") as csv_file:
             file_content = csv_file.read()
             replaced_content = file_content.replace(str(name) + ":" + str(last_score), str(name) + ":" + str(combined_score))
         csv_file.close()
-        
+
         with open("userdata.txt", 'w') as csv_file:
             csv_file.write(replaced_content)
 
@@ -162,7 +162,7 @@ def play_again():
             return False
         else:
             print_slow("Invalid Entry, Please Enter 'Yes' or 'No'.")
-        
+
 
 def display_score(correct_guesses, guesses):
     """
@@ -194,12 +194,12 @@ questions = {
     "1. Which horror author penned the apocalyptic novel 'The Stand'? ": "A",
     "2. Which book is about a band of rabbits became a bestseller in 1972? ": "B",
     "3. The classic 1877 novel 'Black Beauty' is about what kind of animal? ": "A",
-    "4. Who was the first author to use a 'typemachine' or typewriter in writing a manuscript?": "C",    
-    "5. What is 1988 book by Salman Rushdie is considered blasphemous by many Muslim countries?": "C",    
-    "6. Which mystery writer holds the Guinness World Record for the most translated works?": "B",     
-    "7. What book holds the record for the fastest selling book in history? ": "A", 
-    "8. 'Call me Ishmael' is the first line from what classic novel?": "B",     
-    "9. What Charles Dickens novel begins with the sentence, 'It was the best of times, it was the worst of times'": "C",     
+    "4. Who was the first author to use a 'typemachine' or typewriter in writing a manuscript?": "C",
+    "5. What is 1988 book by Salman Rushdie is considered blasphemous by many Muslim countries?": "C",
+    "6. Which mystery writer holds the Guinness World Record for the most translated works?": "B",
+    "7. What book holds the record for the fastest selling book in history? ": "A",
+    "8. 'Call me Ishmael' is the first line from what classic novel?": "B",
+    "9. What Charles Dickens novel begins with the sentence, 'It was the best of times, it was the worst of times'": "C",
     "10. What popular young adult book series sends 'tributes' to participate in a televised competition in which they fight to the death? ": "C",
     "11. Jacob Black is a character in what Stephenie Meyer book series? ": "A",
     "12. What Nicholas Sparks book was about a young socialite and her long-time crush was made into a movie starring Ryan Gosling and Rachel McAdams?": "B",
@@ -214,9 +214,11 @@ options = [
     ["A. Jane Auston", "B. Geore Orwell", "C. Mark Twain"],
     ["A. The Da Vinch code", "B. The Fatal Lozenge", "C. The Satanic Verses"],
     ["A. Pablo Coelho", "B. Agatha Christie", "C. Carlo Collodi"],
-    ["A. Harry Potter and the Deathly Hallows", "B. The Lord of the Rings", "C. The Alchemist"],
+    ["A. Harry Potter and the Deathly Hallows",
+        "B. The Lord of the Rings", "C. The Alchemist"],
     ["A. To kill a mockingbird", "B. Moby Dick", "C. The great Gatsby"],
-    ["A. The Pickwick Papers", "B. A Christmas Carol", "C. A Tale of Two Cities"],
+    ["A. The Pickwick Papers", "B. A Christmas Carol",
+        "C. A Tale of Two Cities"],
     ["A. The host", "B. The chemist", "C. The Hunger Games"],
     ["A. Twilight", "B. Speed", "C.Divergent"],
     ["A. Shotgun Wedding", "B. The Notebook", "C. Purple hearts"],
@@ -234,7 +236,7 @@ try:
     last_score
     print_slow(f"Your last Score was, {last_score}")
 except:
-    print()
+    pass
 
 new_game()
 
