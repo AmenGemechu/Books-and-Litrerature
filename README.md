@@ -49,6 +49,9 @@ At the end ofthe game users will have the choice of replaying if they wish to.
     As a user, I want to see wether my answers were correct or incorrect.
     As a user, I want to see my score.
     As a user, I want to be able to replay.
+    As a user, I want my score to be saved
+    As a user everytime i replay, i want my score to keep being added to my previous scores.
+    As a user i want to see my answers.
 
 
 # Technologies

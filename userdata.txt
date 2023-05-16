@@ -1,0 +1,3 @@
+AMY:68
+MARE:68
+LILLY:0

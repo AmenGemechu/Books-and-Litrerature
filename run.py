@@ -15,7 +15,7 @@ def print_slow(text):
     file_descriptor = sys.stdin.fileno()
     old_settings = termios.tcgetattr(file_descriptor)
     try:
-        ## set terminal to raw to prevent user from interuptings
+        # set terminal to raw to prevent user from interuptings
         tty.setraw(file_descriptor)
         for char in text:
             print(char, end='', flush=True)
@@ -39,17 +39,18 @@ def get_user_name():
             print("User name should be min 3 and max 10 characters long.")
     name = name.upper()
     """
-    Adding levels to the quiz using csv file
-    by Storing the user and the last score in a file subsequently reading 
-    back from it allowes the user to continue from its last state.
+    Storing the user and the last score in a file using cvs_file 
+    it allowes the user to continue from its last score.
     """
-    #Error handeling with try/except
-    #if not os.path.exists(filename):
-    #file(filename, 'w').close()
-
     global last_score
-    with open("levels.txt") as csv_file:
+
+    # Error handeling if file doesn't exist
+    # if not os.path.exists("levels.txt"):
+    #   csv_file("levels.tx", 'w').close()
+
+    with open("userdata.txt") as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=':')
+
         global line_count
         line_count = 0
         found = False
@@ -59,35 +60,29 @@ def get_user_name():
                 break
             line_count += 1
 
-        if found == True:
+        if found is True:
             print(f"match in raw: {+ line_count}")
             last_score = row[1]
             print(f'\t{row[0]} {row[1]}.')
             print(f'Processed {line_count} lines.')
             csv_file.close()
-        if found == False:
+
+        if found is False:
             last_score = 0
             line_count += 1
+
             # Creating user data for new users.
-            with open("levels.txt", "a") as myfile:
+            with open("userdata.txt", "a") as myfile:
                 myfile.write("\n" + str(name) + ":" + str(last_score))
-            myfile.close()
-            #print("no match means we need to add a new")
-        
-
-            
+            myfile.close()           
     return name
-# with open('levels.txt', mode='w') as csv_file:
-   # csv_writer = csv.writer(levels_file, delimiter=',')
-
-# close file
 
 
 def new_game():
     """
     Calling the new game function.
     Defining guesses and correct guesses globaly to be used across functions.
-    Error handlinf for invalid entry.
+    Error handeling for invalid entry.
     """
     global guesses
     guesses = []
@@ -97,7 +92,7 @@ def new_game():
 
     for key in questions:
         print("-------------------------------------------------------")
-        print(key)
+        print_slow(key)
 
         # Options are displayed under every question.
         for i in options[question_num-1]:
@@ -115,7 +110,6 @@ def new_game():
                 print(f"You entered {guess} please enter A, B or C")
 
         # Incrementing score by one.
-        
         correct_guesses += check_answer(questions.get(key),guess)
         question_num += 1
 
@@ -137,60 +131,46 @@ def check_answer(answear, guess):
 def play_again():
     """
     Play again function lets the user play another round of the game
-    or exit the program.
+    if they wish to or exit the program.
     """
     while True:
-        
         score = int((correct_guesses/len(questions))*100)
         print("____________________________________________")
-        print("Your score is: "+str(score)+"%")
+        print_slow("Your score is: "+str(score)+"%")
         print("")
         
         print(f"last_score: {last_score}")
         combined_score = score + int(last_score)
-        #with open("levels.txt",'w') as csv_file:
-        #    search_file = search_file.replace("{name},{last_score}", "{name},{combined_score}")
-        #    csv_file.write(search_file)
-        #    csv_file.close()
-        with open("levels.txt") as csv_file:
-            #print(f"Replacing {name},{last_score} with {name},{combined_score}")
-            #print("")
-            #print("")
+      
+        with open("userdata.txt") as csv_file:
             file_content = csv_file.read()
-            #print(f"file_content: {file_content}")
             replaced_content = file_content.replace(str(name) + ":" + str(last_score), str(name) + ":" + str(combined_score))
-            #print(f"replaced_content:{replaced_content}")
         csv_file.close()
         
-        #    print(f"tempold:")
-        #    newtext = csv_file.read().replace("tmpold", str(tmpnew))
-        #    print(f"newtext is, {newtext}")
-        #csv_file.close()
-        with open("levels.txt", 'w') as csv_file:
+        with open("userdata.txt", 'w') as csv_file:
             csv_file.write(replaced_content)
 
-        print(f"Your combined Score is {combined_score}")
-        response = input("Do you want to play again yes or no? ")
+        print_slow(f"Your combined Score is {combined_score}")
+        response = input("Do you want to play again? /n Enter 'yes' or 'no'")
         response = response.upper()
 
         if response == "YES":
-            print("New game Starting...")
+            print_slow("New game Starting...")
             return True
         elif response == "NO":
             display_score(correct_guesses, guesses)
             return False
         else:
-            print("Invalid Entry, Please Enter 'Yes' or 'No'.")
+            print_slow("Invalid Entry, Please Enter 'Yes' or 'No'.")
         
 
 def display_score(correct_guesses, guesses):
     """
-    User will be provided with a display of their total score at the end of the game.
+    User will be provided with their score at the end of the game.
     """
     print("____________________________________________")
-    print("RESULTS")
+    print_slow("RESULTS")
     print("____________________________________________")
-    print("Correct Answers:", end="")
 
     # Displays all the values within the dictionary.
     for i in questions:
@@ -249,15 +229,14 @@ logo.logo_welcome_page()
 print_slow("Welcome to Books & Litrature Quiz!")
 print_slow("Please enter your User name:")
 name = get_user_name()
-print(f"Hello there, {name}!")
+print_slow(f"Hello there, {name}!")
 try:
     last_score
-    print(f"Your last Score was, {last_score}")
+    print_slow(f"Your last Score was, {last_score}")
 except:
     print()
 
 new_game()
-
 
 # Play again function
 while play_again():
