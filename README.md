@@ -1,6 +1,9 @@
 # Books & Litrature Quiz
 Deployed Site: https://books-and-literature-quiz.herokuapp.com/
 
+![B LQ](https://github.com/AmenGemechu/Portofolio-3/assets/81637641/56526e90-31a2-4af9-a1c3-cc026d473635)
+
+
 Books & Literature Quiz is a command-line application built with Python, where users can test their knowledge of Books & Litrature and learn interesting fun-facts about the subject.
 Users of the application will be asked several questions and their score is kept track of throughout the game. Once the game is completed, score will be calculated by a percentage and displayed to player.
 At the end ofthe game users will have the choice of replaying if they wish to.
@@ -9,7 +12,7 @@ User score will be saved and will be added to their previous score every time th
 * [UX](#user-experience)
     * [Flowchart](#target-audience)
     * [User stories](#user-stories)
-    * 
+    
 *  [Technologies](#technologies)
    * [Languages](#languages-used)
    * [Libraries](#libraries)
