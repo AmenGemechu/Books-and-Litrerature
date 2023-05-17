@@ -1,5 +1,5 @@
 # Books & Litrature Quiz
-
+Deployed Site: https://books-and-literature-quiz.herokuapp.com/
 
 Books & Literature Quiz is a command-line application built with Python, where users can test their knowledge of Books & Litrature and learn interesting fun-facts about the subject.
 Users of the application will be asked several questions and their score is kept track of throughout the game. Once the game is completed, score will be calculated by a percentage and displayed to player.
