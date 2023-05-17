@@ -44,10 +44,6 @@ def get_user_name():
     """
     global last_score
 
-    # Error handeling if file doesn't exist
-    # if not os.path.exists("levels.txt"):
-    #   csv_file("levels.tx", 'w').close()
-
     with open("userdata.txt") as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=':')
 
@@ -229,8 +225,8 @@ print_slow(f"Hello there, {name}!")
 try:
     last_score
     print_slow(f"Your last Score was, {last_score}")
-except:
-    print()
+except Exception as e:
+    print("Last Score not found")
 
 new_game()
 
