@@ -19,6 +19,7 @@ User score will be saved and will be added to their previous score every time th
 
 * [Testing](#testing)
     * [Manual Testing](#manual-testing)
+ * [Features](#features)
     
 * [Bugs](#bugs)
     * [Fixed Bugs](#fixed-bugs)
@@ -64,6 +65,23 @@ User score will be saved and will be added to their previous score every time th
 - Testing was done using PEP8
     - there were no errors found
 ![PEP8](https://github.com/AmenGemechu/Portofolio-3/assets/81637641/1f56605e-32e8-4f61-8ce4-ce98a080fc4e)
+# Features
+## Landing Page
+   - First view when programme starts.
+![landing-page](https://github.com/AmenGemechu/Portofolio-3/assets/81637641/a1174387-af7e-45eb-a3d5-47c48b0e9f88)
+   - Welocome message
+   - Greeting 
+   - Last sore (for returning users)
+![welcome](https://github.com/AmenGemechu/Portofolio-3/assets/81637641/7967ddd5-f6ae-466e-be06-ed7668d83cb6)
+   - Input indication
+   - Feedback
+   ![feedback](https://github.com/AmenGemechu/Portofolio-3/assets/81637641/8608b605-ce30-4147-b3f8-8774976b5902)
+   - Score-board
+   - Last score
+   - Combined score
+   - Good-bye message
+  ![score-board](https://github.com/AmenGemechu/Portofolio-3/assets/81637641/6bc7b27c-74b5-4a0b-92e2-4e8b4509d4e5)
+
 
 # Bugs
 ## Fixed Bugs
@@ -90,11 +108,12 @@ User score will be saved and will be added to their previous score every time th
    12. Optional: You can enable automatic deploys if you want the app to automatically update
 
 # Credits & Acknowledgments
-- Logo text was made using 
+- Flowchart was created using: Lucidchart
+- Logo text was made using:
 https://textkool.com/
 - Type_writer effect code was taken from:
     https://stackoverflow.com/questions/20302331/typing-effect-in-python
-- Questions were taken from
+- Questions were taken from:
     https://keepingupwiththepenguins.com/trivia-questions-about-books-and-literature-answered/
 
 
