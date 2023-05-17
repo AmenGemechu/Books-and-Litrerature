@@ -11,29 +11,21 @@ User score will be saved and will be added to their previous score every time th
     * [User stories](#user-stories)
     * 
 *  [Technologies](#technologies)
-
    * [Languages](#languages-used)
    * [Libraries](#libraries)
 
 * [Testing](#testing)
-
     * [Manual Testing](#manual-testing)
     
 * [Bugs](#bugs)
-    
     * [Fixed Bugs](#fixed-bugs)
     * [Unfixed Bugs](#unfixed-bugs)
 
 * [Deployment](#deployment)
-
-   * [Lockal Deployment](#lockal-deployment)
    * [Herocku Deployment](#heroku-deployment)
 
 * [Credits](#credits)
-
-    * [Content](#content)
     * [Acknowledgments](#acknowledgments)
-
 
 
 # UX
@@ -68,7 +60,7 @@ User score will be saved and will be added to their previous score every time th
 # Testing
 - Testing was done using PEP8
     - there were no errors found
-
+![PEP8](https://github.com/AmenGemechu/Portofolio-3/assets/81637641/1f56605e-32e8-4f61-8ce4-ce98a080fc4e)
 
 # Bugs
 ## Fixed Bugs
@@ -81,8 +73,6 @@ User score will be saved and will be added to their previous score every time th
 
 # Deployment
 ## Herocku Deployment
-- Heroku:
-
    1. Create an account at Heroku and login.
    2. Click the "Create new app" button on your dashboard, add app name and region.
    3. Click on the "Create app" button.
